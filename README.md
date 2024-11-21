@@ -1,7 +1,7 @@
 
 # Card Game Simulator
 
-This project is a C++ implementation of a card game simulator, featuring classes for players, cards, and game mechanics. It includes a demonstration of gameplay to showcase the interactions between these components.
+This project is a C++ implementation of a card game simulator in CLI, featuring classes for players, cards, and game mechanics. It includes a demonstration of gameplay to showcase the interactions between these components.
 
 ## Features
 
@@ -24,7 +24,7 @@ This project is a C++ implementation of a card game simulator, featuring classes
    ```
 2. **Navigate to the Project Directory**:
    ```bash
-   cd CardGameSimulator
+   cd card-game-simulator
    ```
 3. **Compile the Program**:
    ```bash
@@ -53,6 +53,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Author
 
-**Hale Litzhaki**
+**Halel Itzhaki**
 
 For any questions or suggestions, please feel free to contact me.
