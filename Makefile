@@ -14,17 +14,17 @@ OBJECTS=$(subst sources/,objects/,$(subst .cpp,.o,$(SOURCES)))
 
 run: card_game_simulator
 
-demo: Demo.o $(OBJECTS) 
+card_game_simulator: Demo.o $(OBJECTS) 
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-card_game_simulator: TestRunner.o StudentTest1.o  $(OBJECTS)
+test: TestRunner.o StudentTest1.o  $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 tidy:
 	clang-tidy $(HEADERS) $(TIDY_FLAGS) --
 
-valgrind:  card_game_simulator
-	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./card_game_simulator 2>&1 | { egrep "lost| at " || true; }
+valgrind:  test
+	valgrind --tool=memcheck $(VALGRIND_FLAGS) ./test 2>&1 | { egrep "lost| at " || true; }
 
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
@@ -33,4 +33,4 @@ $(OBJECT_PATH)/%.o: $(SOURCE_PATH)/%.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
 
 clean:
-	rm -f $(OBJECTS) *.o card_game_simulator* demo*
+	rm -f $(OBJECTS) *.o card_game_simulator* test*
